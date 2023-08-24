@@ -1,14 +1,26 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"strconv"
-
-	"github.com/xuri/excelize/v2"
+	"github.com/alejandrowaiz98/garbage-reductor/reader"
 )
 
 func main() {
+
+	Reader, err := reader.New()
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = Reader.BuildExcel()
+
+	if err != nil {
+		panic(err)
+	}
+
+}
+
+/* func main() {
 
 	f, err := excelize.OpenFile("test.xlsx")
 
@@ -65,3 +77,4 @@ func GetCellLetter(columnName string) string {
 	}
 	return ""
 }
+*/
